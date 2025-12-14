@@ -5,14 +5,14 @@ import { Check, Star, Zap } from "lucide-react";
 const Plans = () => {
   const plans = [
     {
-      name: "Starter",
-      price: "$49",
+      name: "Monthly Pack",
+      price: "₹3299",
       period: "/month",
-      description: "Perfect for beginners starting their fitness journey",
+      description: "",
       features: [
-        "24/7 Gym Access",
+        "7 Days a Week Gym Access",
         "Basic Equipment Use",
-        "Locker Room Access",
+        "General Training",
         "Mobile App Access",
         "Community Support"
       ],
@@ -20,34 +20,35 @@ const Plans = () => {
       icon: <Star className="w-6 h-6" />
     },
     {
-      name: "Elite",
-      price: "$89",
-      period: "/month",
-      description: "For serious athletes who demand the best",
+      name: "Yearly Pack",
+      price: "₹16999",
+      period: "/Yearly",
+      description: "",
       features: [
-        "Everything in Starter",
-        "Personal Training (2x/month)",
-        "Group Classes Unlimited",
-        "Nutrition Consultation",
-        "Priority Equipment Access",
-        "Recovery Zone Access"
+        "365 Days Gym Access",
+        "Basic Equipment Use",
+        "General Training",
+        "Mobile App Access",
+        "Community Support",
+        "Recovery Zone Access",
+        "membership Freezing",
+        "Guest Passes"
       ],
       popular: true,
       icon: <Zap className="w-6 h-6" />
     },
     {
-      name: "Zero Gravity",
-      price: "$149",
-      period: "/month",
-      description: "Ultimate luxury fitness experience",
+      name: "6 months pack",
+      price: "₹10999",
+      period: "/6-months",
+      description: "",
       features: [
-        "Everything in Elite",
-        "Personal Training (8x/month)",
-        "Private Training Room",
-        "Spa & Wellness Access",
-        "Concierge Service",
-        "Guest Passes (4x/month)",
-        "Premium Supplements"
+                "365 Days Gym Access",
+        "Basic Equipment Use",
+        "General Training",
+        "Mobile App Access",
+        "Community Support",
+        "Recovery Zone Access",
       ],
       popular: false,
       icon: <Star className="w-6 h-6" />

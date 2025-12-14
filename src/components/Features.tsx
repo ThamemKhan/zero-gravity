@@ -1,45 +1,91 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Smartphone, Shield, Trophy, Heart, Brain, Target } from "lucide-react";
+import { Smartphone, Shield, Trophy, Heart, Brain, Target, Zap } from "lucide-react";
 
 const Features = () => {
+  // const features = [
+  //   {
+  //     icon: <Smartphone className="w-12 h-12" />,
+  //     title: "Smart Technology",
+  //     description: "App-integrated equipment tracking your progress automatically",
+  //     highlight: "AI-Powered"
+  //   },
+  //   {
+  //     icon: <Shield className="w-12 h-12" />,
+  //     title: "Safety First",
+  //     description: "Advanced safety protocols and emergency response systems",
+  //     highlight: "Certified Safe"
+  //   },
+  //   {
+  //     icon: <Trophy className="w-12 h-12" />,
+  //     title: "Competition Ready",
+  //     description: "Professional-grade equipment used by athletes worldwide",
+  //     highlight: "Pro Standard"
+  //   },
+  //   {
+  //     icon: <Heart className="w-12 h-12" />,
+  //     title: "Health Monitoring",
+  //     description: "Real-time biometric tracking and health insights",
+  //     highlight: "Health Tech"
+  //   },
+  //   {
+  //     icon: <Brain className="w-12 h-12" />,
+  //     title: "Mind-Body Wellness",
+  //     description: "Meditation zones and mental health support programs",
+  //     highlight: "Holistic"
+  //   },
+  //   {
+  //     icon: <Target className="w-12 h-12" />,
+  //     title: "Goal Achievement",
+  //     description: "Personalized workout plans with measurable results",
+  //     highlight: "Results Driven"
+  //   }
+  // ];
+
   const features = [
-    {
-      icon: <Smartphone className="w-12 h-12" />,
-      title: "Smart Technology",
-      description: "App-integrated equipment tracking your progress automatically",
-      highlight: "AI-Powered"
-    },
-    {
-      icon: <Shield className="w-12 h-12" />,
-      title: "Safety First",
-      description: "Advanced safety protocols and emergency response systems",
-      highlight: "Certified Safe"
-    },
-    {
-      icon: <Trophy className="w-12 h-12" />,
-      title: "Competition Ready",
-      description: "Professional-grade equipment used by athletes worldwide",
-      highlight: "Pro Standard"
-    },
-    {
-      icon: <Heart className="w-12 h-12" />,
-      title: "Health Monitoring",
-      description: "Real-time biometric tracking and health insights",
-      highlight: "Health Tech"
-    },
-    {
-      icon: <Brain className="w-12 h-12" />,
-      title: "Mind-Body Wellness",
-      description: "Meditation zones and mental health support programs",
-      highlight: "Holistic"
-    },
-    {
-      icon: <Target className="w-12 h-12" />,
-      title: "Goal Achievement",
-      description: "Personalized workout plans with measurable results",
-      highlight: "Results Driven"
-    }
-  ];
+  {
+    icon: <Zap className="w-12 h-12" />,
+    title: "Biomechanical Excellence",
+    description:
+      "Precision-built training equipment engineered to support natural movement patterns while maximizing strength and performance.",
+    highlight: "Elite Design"
+  },
+  {
+    icon: <Shield className="w-12 h-12" />,
+    title: "Controlled Training Environment",
+    description:
+      "A professionally managed facility with structured layouts and safety-focused training standards.",
+    highlight: "Secure Training"
+  },
+  {
+    icon: <Trophy className="w-12 h-12" />,
+    title: "Athlete-Level Infrastructure",
+    description:
+      "Purpose-built spaces for Hi-Rocks training and powerlifting, designed to meet competitive performance demands.",
+    highlight: "Competition Grade"
+  },
+  {
+    icon: <Heart className="w-12 h-12" />,
+    title: "Recovery & Regeneration",
+    description:
+      "Integrated steam and red-light therapy systems that support muscle recovery, mobility, and overall wellness.",
+    highlight: "Faster Recovery"
+  },
+  {
+    icon: <Brain className="w-12 h-12" />,
+    title: "Physique Development",
+    description:
+      "A dedicated posing and assessment room to refine symmetry, track progress, and prepare for stage readiness.",
+    highlight: "Physique Focused"
+  },
+  {
+    icon: <Target className="w-12 h-12" />,
+    title: "Goal-Oriented Coaching",
+    description:
+      "Personal training programs built around your goals, training history, and performance milestones.",
+    highlight: "Results Based"
+  }
+];
+
 
   return (
     <section id="features" className="py-20 bg-muted/30">
