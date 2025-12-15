@@ -142,7 +142,7 @@ const EnquiryForm = () => {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="starter">Yearly -₹16999</SelectItem>
-                      <SelectItem value="elite">6 Months - ₹10999/month</SelectItem>
+                      <SelectItem value="elite">6 Months - ₹10999</SelectItem>
                       <SelectItem value="zero-gravity">1 Month - ₹3299</SelectItem>
                     </SelectContent>
                   </Select>
