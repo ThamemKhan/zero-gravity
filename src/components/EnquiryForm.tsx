@@ -199,50 +199,56 @@ const EnquiryForm = () => {
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // Google Form Endpoint
-    const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSducRaShRcSHDzVDnwKA5pKAVnNGiNctpEq8NtjhoNNOl5zmw/formResponse";
+  // 1. Endpoint
+  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSducRaShRcSHDzVDnwKA5pKAVnNGiNctpEq8NtjhoNNOl5zmw/formResponse";
 
-    // Mapping your state to Google Form Entry IDs
-    const formDataToSubmit = new FormData();
-    formDataToSubmit.append("entry.147717462", formData.name);    // Name
-    formDataToSubmit.append("entry.1458896590", formData.email);  // Email
-    formDataToSubmit.append("entry.1565154316", formData.phone);  // Phone
-    formDataToSubmit.append("entry.1501905305", formData.plan);   // Plan
-    formDataToSubmit.append("entry.1503706041", formData.message); // Message
+  // 2. Use URLSearchParams instead of FormData to avoid the 400 error
+  const params = new URLSearchParams();
+  params.append("entry.147717462", formData.name);
+  params.append("entry.1458896590", formData.email);
+  params.append("entry.1565154316", formData.phone);
+  params.append("entry.1501905305", formData.plan);
+  params.append("entry.1503706041", formData.message);
 
-    try {
-      await fetch(GOOGLE_FORM_URL, {
-        method: "POST",
-        mode: "no-cors", // Required to bypass CORS for Google Forms
-        body: formDataToSubmit,
-      });
+  try {
+    await fetch(GOOGLE_FORM_URL, {
+      method: "POST",
+      mode: "no-cors", // Keeps it simple and avoids CORS preflight issues
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: params.toString(),
+    });
 
-      toast({
-        title: "Enquiry Submitted!",
-        description: "We'll get back to you within 24 hours.",
-      });
+    // If we reached here without a catch, the browser sent the request.
+    // With no-cors, we won't see the response body, but the data will be in Google.
+    toast({
+      title: "Enquiry Submitted!",
+      description: "We'll get back to you within 24 hours.",
+    });
 
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        plan: "",
-        message: ""
-      });
-    } catch (error) {
-      toast({
-        variant: "destructive",
-        title: "Submission Failed",
-        description: "Please check your connection and try again.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      plan: "",
+      message: ""
+    });
+  } catch (error) {
+    console.error("Submission error:", error);
+    toast({
+      variant: "destructive",
+      title: "Submission Failed",
+      description: "Please check your connection and try again.",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
