@@ -210,7 +210,7 @@ const EnquiryForm = () => {
   params.append("entry.147717462", formData.name);
   params.append("entry.1458896590", formData.email);
   params.append("entry.1565154316", formData.phone);
-  params.append("entry.1501905305", formData.plan);
+  // params.append("entry.1501905305", formData.plan);
   params.append("entry.1503706041", formData.message);
 
   try {
