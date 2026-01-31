@@ -123,13 +123,13 @@ const EnquiryForm = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
+                  <Label htmlFor="phone">Mobile Number</Label>
                   <Input
                     id="phone"
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => handleInputChange("phone", e.target.value)}
-                    placeholder="Enter your phone number"
+                    placeholder="Enter your mobile number"
                     required
                   />
                 </div>
