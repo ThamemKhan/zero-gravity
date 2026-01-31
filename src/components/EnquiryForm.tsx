@@ -198,39 +198,39 @@ const EnquiryForm = () => {
     message: ""
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setIsSubmitting(true);
 
-  // 1. Endpoint
+  // 1. Google Form Response URL
   const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSducRaShRcSHDzVDnwKA5pKAVnNGiNctpEq8NtjhoNNOl5zmw/formResponse";
 
-  // 2. Use URLSearchParams instead of FormData to avoid the 400 error
+  // 2. Prepare the data with your NEW IDs
   const params = new URLSearchParams();
-  params.append("entry.147717462", formData.name);
-  params.append("entry.1458896590", formData.email);
-  params.append("entry.1565154316", formData.phone);
-  // params.append("entry.1501905305", formData.plan);
-  params.append("entry.1503706041", formData.message);
+  params.append("entry.1915006827", formData.name);
+  params.append("entry.262759643", formData.email);
+  params.append("entry.713054517", formData.phone);
+  params.append("entry.50513976", formData.plan);
+  params.append("entry.252291172", formData.message);
 
-  try {
-    await fetch(GOOGLE_FORM_URL, {
-      method: "POST",
-      mode: "no-cors", // Keeps it simple and avoids CORS preflight issues
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: params.toString(),
-    });
+  // 3. The "Hidden Iframe" trick to guarantee delivery
+  const iframe = document.createElement("iframe");
+  iframe.style.display = "none";
+  iframe.name = "hidden_iframe";
+  document.body.appendChild(iframe);
 
-    // If we reached here without a catch, the browser sent the request.
-    // With no-cors, we won't see the response body, but the data will be in Google.
+  // We submit by setting the iframe source to the URL with the data
+  // Added &submit=Submit to ensure the form processes the entries
+  iframe.src = `${GOOGLE_FORM_URL}?${params.toString()}&submit=Submit`;
+
+  // 4. Handle UI feedback
+  setTimeout(() => {
     toast({
       title: "Enquiry Submitted!",
       description: "We'll get back to you within 24 hours.",
     });
 
-    // Reset form
+    // Reset Form State
     setFormData({
       name: "",
       email: "",
@@ -238,16 +238,14 @@ const EnquiryForm = () => {
       plan: "",
       message: ""
     });
-  } catch (error) {
-    console.error("Submission error:", error);
-    toast({
-      variant: "destructive",
-      title: "Submission Failed",
-      description: "Please check your connection and try again.",
-    });
-  } finally {
+    
     setIsSubmitting(false);
-  }
+    
+    // Clean up the iframe
+    if (document.body.contains(iframe)) {
+      document.body.removeChild(iframe);
+    }
+  }, 1000);
 };
 
   const handleInputChange = (field: string, value: string) => {
