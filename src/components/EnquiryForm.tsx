@@ -358,10 +358,10 @@ const handleSubmit = async (e: React.FormEvent) => {
                     </SelectTrigger>
                     <SelectContent>
                       {/* Note: value must match your Google Form dropdown/radio options exactly */}
-                      <SelectItem value="1 Year - ₹16999">1 Year - ₹16999</SelectItem>
-                      <SelectItem value="6 Months - ₹10999">6 Months - ₹10999</SelectItem>
-                      <SelectItem value="3 Months - ₹7999">3 Months - ₹7999</SelectItem>
-                      <SelectItem value="1 Month - ₹3299">1 Month - ₹3299</SelectItem>
+                      <SelectItem value="1 Year">1 Year - ₹16999</SelectItem>
+                      <SelectItem value="6 Months">6 Months - ₹10999</SelectItem>
+                      <SelectItem value="3 Months">3 Months - ₹7999</SelectItem>
+                      <SelectItem value="1 Month">1 Month - ₹3299</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
