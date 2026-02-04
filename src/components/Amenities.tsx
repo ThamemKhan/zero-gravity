@@ -76,9 +76,9 @@ const amenities = [
   
   {
     icon: <Zap className="w-8 h-8" />,
-    title: "Hi-Rocks & Powerlifting Facility",
+    title: "Hyrox & Powerlifting Facility",
     description:
-      "A Hi-Rocks–equipped training environment with a dedicated powerlifting setup for strength, endurance, and competitive athletes.",
+      "A Hyrox equipped training environment with a dedicated powerlifting setup for strength, endurance, and competitive athletes.",
     image: powerlifting
   },
   {
